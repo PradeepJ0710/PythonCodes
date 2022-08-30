@@ -1,30 +1,31 @@
-def create_board(size=8):
+def board_creation(size = int(input())):
     board=[[0]*size for i in range(size)]
     return board
-def print_board(board):
+	
+def board_printing(board):
     for i in board:
         print(*i)
 
-def solve(board,col):
+def board_solution(board,col):
     
     if col >= len(board):
         
         return True
     for i in range(len(board)):
 
-        if isvalid(board,i,col):
+        if isValid(board,i,col):
             board[i][col]='Q'
             #print('---------')
-            #`print_board(board)
+            #`board_printing(board)
 
-            if solve(board,col+1):
+            if board_solution(board,col+1):
                 return True
         
             board[i][col]=0    
             
     return False
     
-def isvalid(board,row,col):
+def isValid(board,row,col):
     for i in range(col):
         if board[row][i]:
             return False
@@ -41,9 +42,9 @@ def isvalid(board,row,col):
         
 
 
-board=create_board()
+board=board_creation()
 
-print_board(board)
-solve(board,0)
-print('----------------------')
-print_board(board)
+board_printing(board)
+board_solution(board,0)
+print('--------------------------------------------')
+board_printing(board)
