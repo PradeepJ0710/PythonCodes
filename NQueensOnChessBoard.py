@@ -13,7 +13,7 @@ def solve(board,col):
     for i in range(len(board)):
 
         if isvalid(board,i,col):
-            board[i][col]=1
+            board[i][col]='Q'
             #print('---------')
             #`print_board(board)
 
